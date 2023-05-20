@@ -1,0 +1,269 @@
+[
+    {
+        "id": "8a31cca54e12c5d2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "df316ae4c49d1bf7",
+        "type": "ibmiot in",
+        "z": "8a31cca54e12c5d2",
+        "authentication": "apiKey",
+        "apiKey": "",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "",
+        "applicationId": "",
+        "deviceType": "+",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": true,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "0522d3b0a0d305be",
+                "3b65ce8dd235f345",
+                "30973c1717c4e823",
+                "745737cd50d638a6",
+                "ab64a1173f61cc5c"
+            ]
+        ]
+    },
+    {
+        "id": "0522d3b0a0d305be",
+        "type": "debug",
+        "z": "8a31cca54e12c5d2",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3b65ce8dd235f345",
+        "type": "function",
+        "z": "8a31cca54e12c5d2",
+        "name": "Temp Display",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "6cb3eee40b855d0d"
+            ]
+        ]
+    },
+    {
+        "id": "30973c1717c4e823",
+        "type": "function",
+        "z": "8a31cca54e12c5d2",
+        "name": "Temp",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "3c2d5fc7543ba816"
+            ]
+        ]
+    },
+    {
+        "id": "745737cd50d638a6",
+        "type": "function",
+        "z": "8a31cca54e12c5d2",
+        "name": "Pulse message",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "559d6a185d6f6c81"
+            ]
+        ]
+    },
+    {
+        "id": "559d6a185d6f6c81",
+        "type": "ui_text_input",
+        "z": "8a31cca54e12c5d2",
+        "name": "Status",
+        "label": "",
+        "tooltip": "",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 630,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6cb3eee40b855d0d",
+        "type": "ui_chart",
+        "z": "8a31cca54e12c5d2",
+        "name": "Temperature",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c2d5fc7543ba816",
+        "type": "ui_text",
+        "z": "8a31cca54e12c5d2",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Status",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 590,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ed4d6ecafd0b4cbb",
+        "type": "ui_chart",
+        "z": "8a31cca54e12c5d2",
+        "name": "Pulse Rate",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 630,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab64a1173f61cc5c",
+        "type": "function",
+        "z": "8a31cca54e12c5d2",
+        "name": "Pulse",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "ed4d6ecafd0b4cbb"
+            ]
+        ]
+    }
+]
